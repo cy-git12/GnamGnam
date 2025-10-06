@@ -1,0 +1,411 @@
+/**
+  * @format
+ */
+/*******************************
+Webサイト全体の指定
+*******************************/
+html {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #333;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ここから記述します。 */
+
+/*******************************
+変数の指定
+*******************************/
+$mainColor: #f9f5ed;
+$baseColor: #fff;
+$accentColor: #83776a;
+$fontSizeSmall: 16px;
+$fontSizeMedium: 20px;
+$fontSizeLarge: 32px;
+
+/**ブレイクポイント**/
+@mixin sp{
+    @media screen and (max-width:768px) {
+      @content
+    }
+  }
+
+/*******************************
+共通パーツの指定
+*******************************/
+.u-container {
+  max-width: 1080px;
+  padding: 80px 40px;
+  margin: 0 auto;
+
+  @include sp{
+    padding: 80px 20px;
+  }
+}
+
+.section-title{
+  margin-bottom: 64px;
+
+  @include sp {
+    margin-bottom: 40px;
+  }
+
+  .section-titleEn{
+    color: $accentColor;
+    font-size: $fontSizeLarge;
+    font-weight: bold;
+    font-family: Noto serif JP;
+  }
+
+  .section-titleJp{
+    display: block;
+    position: relative;
+    color: $accentColor;
+    font-size: $fontSizeSmall;
+    padding-left: 45px;
+
+    &::before{
+      content: "";
+      position: absolute;
+      background-color: $accentColor;
+      width: 35px;
+      height: 1px;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      margin: auto;
+    }
+  }
+}
+
+.readmore-btn{
+  display: block;
+  position: relative;
+  text-align: center;
+  align-items: center;
+  color: $accentColor;
+  border: 1px solid $accentColor;
+  background-color: $baseColor;
+  width: 180px;
+  padding: 10px 0;
+  transition: 0.2s;
+
+  @include sp {
+    margin: 0 auto;
+  }
+
+  &:hover{
+    background-color: $accentColor;
+    color: $baseColor;
+  }
+
+  &::after{
+    position: absolute;
+    content: "";
+    background-color: $accentColor;
+    width: 70px;
+    height: 1px;
+    top: 0;
+    bottom: 0;
+    right: -35px;
+    z-index: 10;
+    margin: auto;
+    transition: 0.2s;
+  }
+}
+.readmore-btn:hover::after{
+  right: -45px;
+}
+
+/**ヘッダー**/
+.header{
+  top: 0;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  z-index: 100;
+
+  &-inner{
+    max-width: 1080px;
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+
+    @include sp{
+      padding: 16px 20px;
+    }
+
+    .header-list{
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+
+      @include sp{
+        gap: 24px;
+      }
+
+      .header-listItem{
+        color: $accentColor;
+        font-family: Noto serif JP;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.main{
+  margin-top: 80px;
+}
+
+  .firstview{
+    background-image: url(../image/fv.png);
+    padding: 300px 0;
+    position: relative;
+    margin-left: 280px;
+    background-size: cover;
+    background-position: bottom;
+
+    @include sp{
+      margin-left: 0;
+    }
+
+    &-title{
+      border: 1px solid $accentColor;
+      font-size: 40px;
+      font-weight: bold;
+      font-family: Noto serif JP;
+      color: $accentColor;
+      background-color: $baseColor;
+      opacity: 0.8;
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      left: -140px;
+      bottom: 80px;
+
+      @include sp{
+        width: 200px;
+        height: 200px;
+        font-size: 24px;
+        top: 100px;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        bottom: auto;
+      }
+    }
+  }//ファーストビュー
+
+  .concept-inner{
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+
+    @include sp{
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .concept-desc{
+      display: block;
+
+      .concept-text{
+      font-size: $fontSizeSmall;
+      margin-bottom: 40px;
+      }
+    }
+  }//コンセプト
+
+  .menu{
+    background-color: $mainColor;
+
+    &-list{
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 40px;
+
+      @include sp {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .menu-item{
+        position: relative;
+
+        &::before{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 60px;
+          height: 60px;
+          content: '';
+          background-color: $baseColor;
+          color: $accentColor;
+          font-size: $fontSizeLarge;
+          font-family: Noto serif JP;
+          font-weight: bold;
+          opacity: 0.8;
+          text-align: center;
+          line-height: 60px;
+        }
+
+        &:nth-of-type(01)::before{
+            content: '01';
+        }
+
+        &:nth-of-type(02){
+          margin-top: 40px;
+
+          @include sp {
+            margin-top: 0;
+          }
+
+          &::before{
+            content: '02';
+          }
+        }
+
+        &:nth-of-type(03){
+          margin-top: 80px;
+
+          @include sp {
+            margin-top: 0;
+          }
+
+          &::before{
+            content: '03';
+          }
+        }
+
+        .menu-img{
+          margin-bottom: 16px;
+        }
+
+        .menu-name{
+          font-size: $fontSizeSmall;
+        }
+
+        .menu-price{
+          color: $accentColor;
+          font-family: Noto serif JP;
+          font-size: $fontSizeSmall;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .readmore-btn-center{
+      margin: 0 auto;
+    }
+  }//メニュー
+
+  .fixedbg{
+    background-image: url(../image/fixed_bg.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+
+    @include sp {
+      height: 350px;
+      background-attachment: scroll;
+      background-size: cover;
+    }
+  }
+
+  .shop-inner{
+    display: flex;
+    gap: 60px;
+    justify-content: space-between;
+
+    @include sp {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .shop-desc{
+      flex-grow: 1;
+    }
+
+    .shop-title{
+      font-size: 20px;
+      font-family: Noto serif JP;
+      color: $accentColor;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .shopdlInner{
+      display: flex;
+      gap: 24px;
+      padding: 16px 0;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 16px;
+
+      &:last-child{
+        margin-bottom: 0;
+      }
+
+      .shop-dltitle{
+      font-weight: normal;
+      width: 70px;
+    }
+    }
+  }//ショップインナー
+
+
+.footer{
+  background-color: $mainColor;
+  color: $accentColor;
+
+  &-inner{
+    padding: 40px 0;
+    text-align: center;
+
+    .footer-logo{
+      display: inline-block;
+      margin: 0 auto 16px;
+    }
+
+    .footer-list{
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 24px;
+
+      @include sp {
+        gap: 16px;
+      }
+
+      .footer-link{
+        font-size: $fontSizeSmall;
+        font-weight: bold;
+        font-family: Noto serif JP;
+      }
+    }
+
+    .footer-copy{
+      font-size: 14px;
+    }
+  }
+}
+
+.fixed-btn{
+  display: inline-block;
+  position: fixed;
+  right: 0;
+  bottom: 65px;
+  z-index: 90;
+}

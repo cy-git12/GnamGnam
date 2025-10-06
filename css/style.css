@@ -1,0 +1,430 @@
+@charset "UTF-8";
+/**
+  * @format
+ */
+/*******************************
+Webサイト全体の指定
+*******************************/
+html {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #333;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ここから記述します。 */
+/*******************************
+変数の指定
+*******************************/
+/**ブレイクポイント**/
+/*******************************
+共通パーツの指定
+*******************************/
+.u-container {
+  max-width: 1080px;
+  padding: 80px 40px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+  .u-container {
+    padding: 80px 20px;
+  }
+}
+
+.section-title {
+  margin-bottom: 64px;
+}
+@media screen and (max-width: 768px) {
+  .section-title {
+    margin-bottom: 40px;
+  }
+}
+.section-title .section-titleEn {
+  color: #83776a;
+  font-size: 32px;
+  font-weight: bold;
+  font-family: Noto serif JP;
+}
+.section-title .section-titleJp {
+  display: block;
+  position: relative;
+  color: #83776a;
+  font-size: 16px;
+  padding-left: 45px;
+}
+.section-title .section-titleJp::before {
+  content: "";
+  position: absolute;
+  background-color: #83776a;
+  width: 35px;
+  height: 1px;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  margin: auto;
+}
+
+.readmore-btn {
+  display: block;
+  position: relative;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #83776a;
+  border: 1px solid #83776a;
+  background-color: #fff;
+  width: 180px;
+  padding: 10px 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+@media screen and (max-width: 768px) {
+  .readmore-btn {
+    margin: 0 auto;
+  }
+}
+.readmore-btn:hover {
+  background-color: #83776a;
+  color: #fff;
+}
+.readmore-btn::after {
+  position: absolute;
+  content: "";
+  background-color: #83776a;
+  width: 70px;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  right: -35px;
+  z-index: 10;
+  margin: auto;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.readmore-btn:hover::after {
+  right: -45px;
+}
+
+/**ヘッダー**/
+.header {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  z-index: 100;
+}
+.header-inner {
+  max-width: 1080px;
+  padding: 16px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+  .header-inner {
+    padding: 16px 20px;
+  }
+}
+.header-inner .header-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 40px;
+}
+@media screen and (max-width: 768px) {
+  .header-inner .header-list {
+    gap: 24px;
+  }
+}
+.header-inner .header-list .header-listItem {
+  color: #83776a;
+  font-family: Noto serif JP;
+  font-weight: bold;
+}
+
+.main {
+  margin-top: 80px;
+}
+
+.firstview {
+  background-image: url(../image/fv.png);
+  padding: 300px 0;
+  position: relative;
+  margin-left: 280px;
+  background-size: cover;
+  background-position: bottom;
+}
+@media screen and (max-width: 768px) {
+  .firstview {
+    margin-left: 0;
+  }
+}
+.firstview-title {
+  border: 1px solid #83776a;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Noto serif JP;
+  color: #83776a;
+  background-color: #fff;
+  opacity: 0.8;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: -140px;
+  bottom: 80px;
+}
+@media screen and (max-width: 768px) {
+  .firstview-title {
+    width: 200px;
+    height: 200px;
+    font-size: 24px;
+    top: 100px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: auto;
+  }
+}
+
+.concept-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 60px;
+}
+@media screen and (max-width: 768px) {
+  .concept-inner {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 40px;
+  }
+}
+.concept-inner .concept-desc {
+  display: block;
+}
+.concept-inner .concept-desc .concept-text {
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.menu {
+  background-color: #f9f5ed;
+}
+.menu-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+@media screen and (max-width: 768px) {
+  .menu-list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+.menu-list .menu-item {
+  position: relative;
+}
+.menu-list .menu-item::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  content: "";
+  background-color: #fff;
+  color: #83776a;
+  font-size: 32px;
+  font-family: Noto serif JP;
+  font-weight: bold;
+  opacity: 0.8;
+  text-align: center;
+  line-height: 60px;
+}
+.menu-list .menu-item:nth-of-type(01)::before {
+  content: "01";
+}
+.menu-list .menu-item:nth-of-type(02) {
+  margin-top: 40px;
+}
+@media screen and (max-width: 768px) {
+  .menu-list .menu-item:nth-of-type(02) {
+    margin-top: 0;
+  }
+}
+.menu-list .menu-item:nth-of-type(02)::before {
+  content: "02";
+}
+.menu-list .menu-item:nth-of-type(03) {
+  margin-top: 80px;
+}
+@media screen and (max-width: 768px) {
+  .menu-list .menu-item:nth-of-type(03) {
+    margin-top: 0;
+  }
+}
+.menu-list .menu-item:nth-of-type(03)::before {
+  content: "03";
+}
+.menu-list .menu-item .menu-img {
+  margin-bottom: 16px;
+}
+.menu-list .menu-item .menu-name {
+  font-size: 16px;
+}
+.menu-list .menu-item .menu-price {
+  color: #83776a;
+  font-family: Noto serif JP;
+  font-size: 16px;
+  font-weight: bold;
+}
+.menu .readmore-btn-center {
+  margin: 0 auto;
+}
+
+.fixedbg {
+  background-image: url(../image/fixed_bg.png);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+@media screen and (max-width: 768px) {
+  .fixedbg {
+    height: 350px;
+    background-attachment: scroll;
+    background-size: cover;
+  }
+}
+
+.shop-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 60px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+@media screen and (max-width: 768px) {
+  .shop-inner {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 40px;
+  }
+}
+.shop-inner .shop-desc {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.shop-inner .shop-title {
+  font-size: 20px;
+  font-family: Noto serif JP;
+  color: #83776a;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+.shop-inner .shopdlInner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 16px;
+}
+.shop-inner .shopdlInner:last-child {
+  margin-bottom: 0;
+}
+.shop-inner .shopdlInner .shop-dltitle {
+  font-weight: normal;
+  width: 70px;
+}
+
+.footer {
+  background-color: #f9f5ed;
+  color: #83776a;
+}
+.footer-inner {
+  padding: 40px 0;
+  text-align: center;
+}
+.footer-inner .footer-logo {
+  display: inline-block;
+  margin: 0 auto 16px;
+}
+.footer-inner .footer-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+@media screen and (max-width: 768px) {
+  .footer-inner .footer-list {
+    gap: 16px;
+  }
+}
+.footer-inner .footer-list .footer-link {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Noto serif JP;
+}
+.footer-inner .footer-copy {
+  font-size: 14px;
+}
+
+.fixed-btn {
+  display: inline-block;
+  position: fixed;
+  right: 0;
+  bottom: 65px;
+  z-index: 90;
+}
